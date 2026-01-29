@@ -1,0 +1,34 @@
+package WEEK_2.Basic_Level;
+
+import java.util.Stack;
+
+public class Min_Stack {
+    Stack<Integer> st;
+    Stack<Integer> min;
+    public Min_Stack() {
+        st = new Stack<>();
+        min = new Stack<>();
+    }
+
+    public void push(int val) {
+        st.push(val);
+        if(min.isEmpty()){
+            min.push(val);
+        }else{
+            min.push(Math.min(min.peek(),val));
+        }
+    }
+
+    public void pop() {
+        st.pop();
+        min.pop();
+    }
+
+    public int top() {
+        return st.peek();
+    }
+
+    public int getMin() {
+        return min.peek();
+    }
+}
